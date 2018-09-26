@@ -19,7 +19,7 @@ import java.util.Map;
 public class KafkaConfiguration {
     @Bean
     public Map<String, Object> producerConfigs() {
-        Map<String, Object> config = new HashMap<>();
+        Map<String, Object> config = new HashMap<>() ;
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
