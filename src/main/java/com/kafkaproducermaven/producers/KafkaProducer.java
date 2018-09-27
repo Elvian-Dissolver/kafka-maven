@@ -1,4 +1,4 @@
-package com.kafkaproducermaven.controllers;
+package com.kafkaproducermaven.producers;
 
 import com.kafkaproducermaven.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
