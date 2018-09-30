@@ -1,47 +1,50 @@
 package com.kafkaproducermaven.models;
 
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
+
+@Table("user")
 public class User {
+    @PrimaryKey
+    private int id;
+
     private String name;
-    private String dept;
-    private Long salary;
+
+    private String address;
+
+    private int age;
+
 
     public User(){}
-    public User(String name, String dept, Long salary){
+    public User(int id, String name, String address, int age) {
+        this.id = id;
         this.name = name;
-        this.dept = dept;
-        this.salary = salary;
+        this.address = address;
+        this.age = age;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getDept() {
-        return dept;
+    public String getAddress() {
+        return address;
     }
 
-    public Long getSalary() {
-        return salary;
+    public int getAge() {
+        return age;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDept(String dept) {
-        this.dept = dept;
-    }
-
-    public void setSalary(Long salary) {
-        this.salary = salary;
+    public int getId() {
+        return id;
     }
 
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("User{");
         sb.append("name='").append(name).append('\'');
-        sb.append(", dept='").append(dept).append('\'');
-        sb.append(", salary='").append(salary).append('\'');
+        sb.append(", address='").append(address).append('\'');
+        sb.append(", age='").append(age).append('\'');
         sb.append('}');
         return sb.toString();
     }
