@@ -33,10 +33,17 @@ public class KafkaProducer {
     @PostMapping("/insert")
     public String insert(@RequestBody User user){
         this.userRepository.insert(user);
-        kafkaTemplate.send(TOPIC, user);
         user.setAction("Post");
+        kafkaTemplate.send(TOPIC, user);
         return "Post successfully";
     }
 
+    @PutMapping("/update")
+    public String update(@RequestBody User user){
+        this.userRepository.save(user);
+        //user.setAction("Update");
+        //kafkaTemplate.send(TOPIC, user);
+        return "Update successfully";
+    }
 
 }

@@ -12,4 +12,7 @@ public interface UserRepository extends CassandraRepository<User, Integer> {
 
     @Query("SELECT *FROM user WHERE age<=?0 ALLOW FILTERING")
     List<User> findByAgeLessThanEqual(int age);
+
+    @Query("INSERT INTO user (address,age,id,name) VALUES(?0,?0,?0,?0) ALLOW FILTERING")
+    User save(User user);
 }

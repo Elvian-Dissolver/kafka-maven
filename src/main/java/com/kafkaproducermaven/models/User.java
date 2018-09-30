@@ -40,8 +40,8 @@ public class User {
         return id;
     }
 
-    public void setAction(String action){
-        this.action=action;
+    public void setAction(String action1){
+        this.action=action1;
     }
     public String getAction(){
         return action;
