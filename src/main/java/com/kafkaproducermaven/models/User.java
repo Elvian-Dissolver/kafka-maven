@@ -14,6 +14,7 @@ public class User {
 
     private int age;
 
+    private String action;
 
     public User(){}
     public User(int id, String name, String address, int age) {
@@ -39,13 +40,20 @@ public class User {
         return id;
     }
 
+    public void setAction(String action){
+        this.action=action;
+    }
+    public String getAction(){
+        return action;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("User{");
         sb.append("name='").append(name).append('\'');
         sb.append(", address='").append(address).append('\'');
         sb.append(", age='").append(age).append('\'');
-        sb.append('}');
+        sb.append('}').append(action).append(' ');
         return sb.toString();
     }
 }

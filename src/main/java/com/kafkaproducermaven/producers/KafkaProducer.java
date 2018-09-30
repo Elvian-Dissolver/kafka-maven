@@ -34,6 +34,7 @@ public class KafkaProducer {
     public String insert(@RequestBody User user){
         this.userRepository.insert(user);
         kafkaTemplate.send(TOPIC, user);
+        user.setAction("Post");
         return "Post successfully";
     }
 
