@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("kafka")
 public class KafkaProducer {
+    
     @Autowired
     private KafkaTemplate<String, User> kafkaTemplate;
 
@@ -19,7 +20,7 @@ public class KafkaProducer {
     @GetMapping("/publish/{name}")
     public String post(@PathVariable("name") final String name){
 
-        kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
+        kafkaTemplate.send(TOPIC, new User(1,name, "Jakarta", 22));
 
         return "Published successfully";
 
