@@ -13,5 +13,6 @@ public interface UserRepository extends CassandraRepository<User, Integer> {
     @Query("SELECT *FROM user WHERE age<=?0 ALLOW FILTERING")
     List<User> findByAgeLessThanEqual(int age);
 
-
+    @Query("SELECT *FROM user WHERE id=?0 ALLOW FILTERING")
+    User findById(int id);
 }
