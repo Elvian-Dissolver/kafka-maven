@@ -1,8 +1,14 @@
 package com.kafkaproducermaven.models;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Component
 @Table("user")
 public class User {
     @PrimaryKey
@@ -14,9 +20,11 @@ public class User {
 
     private int age;
 
+    @Transient
     private String action;
 
     public User(){}
+
     public User(int id, String name, String address, int age) {
         this.id = id;
         this.name = name;
@@ -49,11 +57,15 @@ public class User {
 
     @Override
     public String toString() {
+
         final StringBuffer sb = new StringBuffer("User{");
         sb.append("name='").append(name).append('\'');
         sb.append(", address='").append(address).append('\'');
         sb.append(", age='").append(age).append('\'');
-        sb.append('}').append(action).append(' ');
+        sb.append('}').append(getAction()).append(' ');
         return sb.toString();
     }
+
+
+
 }

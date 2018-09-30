@@ -41,8 +41,8 @@ public class KafkaProducer {
     @PutMapping("/update")
     public String update(@RequestBody User user){
         this.userRepository.save(user);
-        //user.setAction("Update");
-        //kafkaTemplate.send(TOPIC, user);
+        user.setAction("Update");
+        kafkaTemplate.send(TOPIC, user);
         return "Update successfully";
     }
 
